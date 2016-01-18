@@ -192,11 +192,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mScreenTimeoutPreference = (ListPreference) findPreference(KEY_SCREEN_TIMEOUT);
         final long currentTimeout = Settings.System.getLong(resolver, SCREEN_OFF_TIMEOUT,
                 FALLBACK_SCREEN_TIMEOUT_VALUE);
-        mScreenTimeoutPreference.setValue(String.valueOf(currentTimeout));
-        mScreenTimeoutPreference.setOnPreferenceChangeListener(this);
-        disableUnusableTimeouts(mScreenTimeoutPreference);
-        updateTimeoutPreferenceDescription(currentTimeout);
-        updateDisplayRotationPreferenceDescription();
+//        mScreenTimeoutPreference.setValue(String.valueOf(currentTimeout));
+//        mScreenTimeoutPreference.setOnPreferenceChangeListener(this);
+//        disableUnusableTimeouts(mScreenTimeoutPreference);
+//        updateTimeoutPreferenceDescription(currentTimeout);
+//        updateDisplayRotationPreferenceDescription();
 
         mFontSizePref = (FontDialogPreference) findPreference(KEY_FONT_SIZE);
         mFontSizePref.setOnPreferenceChangeListener(this);
@@ -224,14 +224,14 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         mTapToWake = (CheckBoxPreference) findPreference(KEY_TAP_TO_WAKE);
         if (!isTapToWakeSupported()) {
-            advancedPrefs.removePreference(mTapToWake);
+//            advancedPrefs.removePreference(mTapToWake);
             mTapToWake = null;
         }
 
         boolean proximityCheckOnWait = res.getBoolean(
                 com.android.internal.R.bool.config_proximityCheckOnWake);
         if (!proximityCheckOnWait) {
-            advancedPrefs.removePreference(findPreference(KEY_PROXIMITY_WAKE));
+//            advancedPrefs.removePreference(findPreference(KEY_PROXIMITY_WAKE));
             Settings.System.putInt(getContentResolver(), Settings.System.PROXIMITY_ON_WAKE, 1);
         }
 
@@ -484,9 +484,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         boolean wakeUpWhenPluggedOrUnpluggedConfig = getResources().getBoolean(
                 com.android.internal.R.bool.config_unplugTurnsOnScreen);
 
-        mWakeWhenPluggedOrUnplugged.setChecked(Settings.Global.getInt(resolver,
-                Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
-                (wakeUpWhenPluggedOrUnpluggedConfig ? 1 : 0)) == 1);
+//        mWakeWhenPluggedOrUnplugged.setChecked(Settings.Global.getInt(resolver,
+//                Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
+//                (wakeUpWhenPluggedOrUnpluggedConfig ? 1 : 0)) == 1);
 
         updateState();
     }
